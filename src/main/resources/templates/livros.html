@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/estilos.css}" rel="stylesheet">
+    <title>Livros</title>
+</head>
+<body>
+<nav th:replace="fragments :: nav"></nav>
+
+<h1>Livros</h1>
+
+<div class="conteiner-cards">
+    <div class="card" style="width: 18rem;" th:each="livro : ${livros}">
+        <img src="/img/livro2.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${livro.titulo}">Card title</h5>
+            <h6 class="card-text" th:text="${livro.preco}">67331</h6>
+            <p class="card-text" th:text="${livro.descricao}">p</p>
+            <a href="#" class="btn btn-primary">Comprar</a>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

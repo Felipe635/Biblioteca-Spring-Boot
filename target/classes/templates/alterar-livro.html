@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Alterar Usuário</title>
+    <!-- Adicione os links para os arquivos CSS do Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Adicione aqui outros arquivos CSS personalizados, se necessário -->
+</head>
+<body>
+
+<nav th:replace="fragments :: nav"></nav>
+
+<div class="container">
+    <h1 class="mt-5">Alterar Livro</h1>
+
+    <form th:action="@{/livro/editar/{id}(id=${livro.id})}" th:object="${livro}" method="post" class="mt-3">
+        <div class="form-group">
+            <label for="titulo">Titulo:</label>
+            <input type="text" class="form-control" id="titulo" th:field="*{titulo}">
+            <span class="text-danger" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></span>
+        </div>
+        <div class="form-group">
+            <label for="autor">Autor:</label>
+            <input type="text" class="form-control" id="autor" th:field="*{autor}">
+            <span class="text-danger" th:if="${#fields.hasErrors('autor')}" th:errors="*{autor}"></span>
+        </div>
+        <div class="form-group">
+            <label for="preco">Preco:</label>
+            <input type="text" class="form-control" id="preco" th:field="*{preco}"> <!--o field serve para vincular o valor que vai ser recebido no campo do form ao valor da variavel na tabela -->
+
+        </div>
+        <div class="form-group">
+            <label for="isbn">ISBN:</label>
+            <input type="number" class="form-control" id="isbn" th:field="*{isbn}">
+        </div>
+        <div class="form-group">
+            <label for="descricao">Descrição:</label>
+            <input type="text" class="form-control" id="descricao" th:field="*{descricao}">
+            <span class="text-danger" th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Alterar</button>
+    </form>
+</div>
+<!-- Adicione os scripts do Bootstrap -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Adicione aqui outros scripts personalizados, se necessário -->
+</body>
+</html>

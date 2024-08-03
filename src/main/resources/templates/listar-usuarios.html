@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Listar Usuários</title>
+</head>
+<body>
+<nav th:replace="fragments :: nav"></nav>
+
+<h1>Lista de Usuários</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:if="${usuarios.empty}">
+            <td>Sem usuários</td>
+        </tr>
+        <tr th:each="usuario : ${usuarios}"> <!--faz um loop na lista de usuarios e usa a variavel usuario pra representar cada elemento da lista-->
+            <td><span th:text="${usuario.nome}">Nome</span></td>
+            <td><span th:text="${usuario.email}">Email</span></td>
+            <td>
+                <a class="btn btn-outline-danger btn-sm"
+                th:href="@{/usuario/admin/apagar/{id}(id=${usuario.id})}"
+                th:data-confirm-delete="|Você gostaria de apagar ${usuario.nome}?|"
+                onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false">
+                Apagar
+                </a> <!--o href passa o endpoint com o id do usuario que queremos excluir data apresenta uma mensagem de confirmação e verifica se houve confirmacao-->
+            </td>
+            <td>
+                <a class="btn btn-outline-primary btn-sm"
+                   th:href="@{/usuario/editar/{id}(id=${usuario.id})}"
+                >Editar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

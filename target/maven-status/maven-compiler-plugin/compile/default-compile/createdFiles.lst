@@ -1,0 +1,11 @@
+com\example\aula2304\Aula2304Application.class
+com\example\aula2304\Livro.class
+com\example\aula2304\UsuarioController.class
+com\example\aula2304\UsuarioRepository.class
+com\example\aula2304\LivroRepository.class
+com\example\aula2304\LivroController.class
+com\example\aula2304\Papel.class
+com\example\aula2304\Usuario.class
+com\example\aula2304\HomeController.class
+com\example\aula2304\PapelRepository.class
+com\example\aula2304\CarregarDados.class
